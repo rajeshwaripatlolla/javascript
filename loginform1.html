@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            background-image: linear-gradient(to left, navy, rgb(85, 134, 154), rgb(29, 83, 165), indigo);
+        }
+        
+        #main {
+            border: 2px solid black;
+            background-image: linear-gradient(indigo, purple);
+            height: 250px;
+            width: 280px;
+            color: white;
+            margin: auto;
+            margin-top: 100px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        input {
+            margin-top: 5px;
+            border-radius: 5px;
+            padding: 5px;
+            margin-left: 50px;
+        }
+        
+        p {
+            margin-left: 40px;
+        }
+        a{
+            color: aliceblue;
+            margin-left: 42px;
+         position: relative;
+         top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <h3 style="text-align: center;">Login Form</h3>
+        <form id="loginForm">
+            <input type="email" placeholder="Gmail" id="email"><br><br>
+            <input type="password" placeholder="Password" id="password"><br><br>
+            <input type="submit" value="Login" id="loginButton"><br> 
+        </form>
+        <a href="./signupform1.html"> Don't have an account? Signup</a>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener("submit", function(e) {
+            e.preventDefault();
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            let userDetails = JSON.parse(localStorage.getItem("userdetails")) || [];
+
+            let foundUser = userDetails.find(user => {
+                return JSON.parse(user).email === email && JSON.parse(user).password === password;
+            });
+
+            if (foundUser) {
+                // alert("Login Successful.");
+                window.location.href = "welcome.html";
+            } else {
+                alert("User does not exist.");
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: linear-gradient(to bottom right, #4CAF50, #2196F3);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+   
+   #watch{
+    background-color: rgba(255, 255, 255, 0.8);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      text-align: center;}
+      h1{
+        font-size: 2.5em;
+      margin: 0;
+      }
+      button{
+        background-color: #2196F3;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-right: 10px;
+      }
+
+
+  </style>
+</head>
+<body>
+  <div id="watch" style="display: flex">
+    <h1 id="hours" style="margin-left: 60px;">00</h1>
+    <h1 id="minutes" >:00</h1>
+    <h1 id="seconds">:00</h1>
+     <h1 id="milliseconds">:000</h1>
+  </div>
+  <button id="btn1">Start</button>
+  <button id="btn2">Stop</button>
+
+  <script>
+    var a = document.getElementById("hours");
+    var b = document.getElementById("minutes");
+    var c = document.getElementById("seconds");
+    var d = document.getElementById("btn1");
+    var e = document.getElementById("btn2");
+
+    var i = 1;
+    var j = 1;
+    // var a;
+
+    d.onclick = start;
+
+    function start() {
+      s = setInterval(wow, 1000);
+    }
+
+    e.onclick = stop;
+
+    function stop() {
+      clearInterval(s);
+    }
+
+    function wow() {                            // wow =seconds
+      c.innerHTML = `:${i++}`;
+      if (i == 60) {
+        i = 0;                                     // wow2=minutes
+        wow1();
+      }
+    }
+
+    function wow1() {
+      b.innerHTML = `:${j++}`;
+      if (j == 60) {
+        j = 0;
+        wow2();
+      }
+    }
+
+    function wow2() {
+      a.innerHTML = `:${k++}`;
+      if (k == 24) {
+        k = 0;
+      }
+    }
+
+
+    
+  </script>
+</body>
+</html>

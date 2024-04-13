@@ -1,0 +1,49 @@
+.container{
+    width: 1500px;
+    height: 600px;
+    
+    /* background: linear-gradient(135deg,darkblue,purple); */
+    background-color: rgb(53, 53, 158);
+    color: white;
+}
+.calculator{
+    width: 700px;
+    margin-left: 10%;
+    margin-top: 10%;
+}
+.box{
+    margin: 40px 0px;
+    padding: 40px;
+    border-radius: 10px;
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+}
+.box input{
+    flex: 1;
+    margin-right: 20px;
+    padding: 14px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    position: relative;
+}
+.box button{
+    background-color: yellow;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-weight: 500;
+    color:grey; 
+    cursor: pointer;
+}
+.box input::-webkit-calender-picker-indicator{
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-position: calc(100% -10px);
+    width: auto;
+    height: auto;
+    position: absolute;
+    background-size:30px ;
+    cursor: pointer;
+}

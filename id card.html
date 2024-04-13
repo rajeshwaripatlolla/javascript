@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      var div1 = document.createElement("div");
+      div1.style.border = "2px solid black";
+      div1.style.height = "400px";
+      div1.style.width = "280px";
+      div1.style.backgroundImage = "linear-Gradient(to right,#2193b0,#6dd5ed)";
+      document.body.appendChild(div1);
+      var img1 = document.createElement("img");
+      img1.setAttribute( "src",  "https://www.10000coders.co/assets/10000coders-logo.png?v=1.2");
+      img1.setAttribute("height", "100px");
+      img1.setAttribute("width", "160px");
+      img1.style.marginLeft = "60px";
+      div1.appendChild(img1);
+      var p1 = document.createElement("p");
+      document.body.appendChild(p1);
+      var b = document.createElement("img");
+      b.setAttribute("src", "RAJIPHOTO.jpeg");
+      b.style.height = "150px";
+      b.style.width = "150px";
+      b.style.borderRadius = "40%";
+      b.style.marginLeft = "60px";
+      div1.appendChild(b);
+      var c = document.createElement("p");
+      c.innerText = "PATLOLLA RAJESHWARI";
+      div1.appendChild(c);
+      c.style.marginLeft = "50px";
+      var d = document.createElement("P");
+      d.innerHTML = " <b>ID : 151219<b>";
+      d.style.marginLeft = "120px";
+      d.style.fontSize = "12px";
+      div1.appendChild(d);
+      var d = document.createElement("p");
+      d.innerHTML = "<b>BATCH : 1R<b>";
+      d.style.marginLeft = "110px";
+      d.style.fontSize = "12px";
+      div1.appendChild(d);
+      var d = document.createElement("p");
+      d.innerHTML = "<b>MOBILE:7396898402";
+      d.style.marginLeft = "90px";
+      d.style.fontSize = "12px";
+      div1.appendChild(d);
+      var d = document.createElement("p");
+      d.innerHTML = "<b>BLOOD GROUP:  A+<b>";
+      d.style.marginLeft = "90px";
+      d.style.fontSize = "12px";
+      div1.appendChild(d);
+    </script>
+  </body>
+</html>

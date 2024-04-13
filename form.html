@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <style>
+        body {
+            background-image: linear-gradient(to left, navy, rgb(85, 134, 154), rgb(29, 83, 165), indigo);
+        }
+        
+        #main {
+            border: 2px solid black;
+            background-image: linear-gradient(indigo, purple);
+            height: 350px;
+            width: 280px;
+            color: white;
+            margin-left: 600px;
+            margin-top: 200px;
+        }
+        
+        input {
+            margin-left: 55px;
+            margin-top: 5px;
+            border-radius: 5px;
+            padding: 5px;
+        }
+        
+        p {
+            margin-left: 40px;
+        }
+        a{
+            color: antiquewhite;
+            margin-left: 50px;
+            margin-bottom: -10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="main">
+            <h3 style="text-align: center;">Signup Form</h3>
+             <form>
+                <input type="text" placeholder="Username" id="hp"><br><br>
+                <input type="number" placeholder="Mobile Number" id="hp1"><br><br>
+                <input type="email" placeholder="Gmail" id="hp2"><br><br>
+                <input type="password" placeholder="Password" id="hp3"><br><br>
+                <input type="button" value="Signup" id="hp4"><br> 
+            </form>
+            <a href="login.html"> Already have an accont login</a>
+            <!-- <button><a href="./login.html"></a>Login</button>  -->
+             <!-- Already have an account? <input type="button" value="login"><a href="login.html"></button></a> -->
+           
+        </div>
+    </div>
+    
+
+
+         <script>
+            //  localStorage.clear()
+            var getForm = document.getElementsByTagName("form")
+            let arr = localStorage.getItem("userdetails")|| []
+            document.getElementById('hp4').addEventListener("click", (e) => {
+                e.preventDefault()
+                let obj = {}
+                
+                obj["username"] = getForm[0][0].value
+                obj["email"] = getForm[0][1].value
+                obj["password"] = getForm[0][2].value
+                // localStorage.setItem("username",getForm[0][0].value)
+                // localStorage.setItem("email",getForm[0][1].value)
+                // localStorage.setItem("password",getForm[0][2].value)
+    
+                console.log(obj)
+                 arr.push(JSON.stringify(obj));
+                 localStorage.setItem("userdetails",arr);
+                
+                 let emailExists = arr.some((user) => user.email === obj.email)
+    
+                
+                    if(arr){
+                        arr.push(obj)
+                    
+                        alert("Registration Successful")
+                    }
+                    else{
+                        alert("user already exists, go to  login In")
+                    }
+                console.log(arr);
+                localStorage.setItem("users", JSON.stringify(arr))
+                
+    
+            }
+    
+            )
+            
+
+        </script>
+   
+   

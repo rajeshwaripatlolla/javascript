@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+    <style>
+      body {
+        background-image: linear-gradient(
+          to left,
+          navy,
+          rgb(85, 134, 154),
+          rgb(29, 83, 165),
+          indigo
+        );
+      }
+      #main {
+        border: 2px solid black;
+        background-image: linear-gradient(indigo, purple);
+        height: 350px;
+        width: 280px;
+        color: white;
+        margin: auto;
+        margin-top: 100px;
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      input {
+        margin-top: 5px;
+        border-radius: 5px;
+        padding: 5px;
+        margin-left: 50px;
+      }
+
+      p {
+        margin-left: 40px;
+      }
+      a {
+        color: aliceblue;
+        margin-left: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <h3 style="text-align: center">Signup Form</h3>
+      <form id="signupForm">
+        <input type="text" placeholder="Username" id="username" /><br /><br />
+        <input type="tel" placeholder="Mobile Number" id="mobile" /><br /><br />
+        <input type="email" placeholder="Gmail" id="email" /><br /><br />
+        <input
+          type="password"
+          placeholder="Password"
+          id="password"
+        /><br /><br />
+        <input type="submit" value="Signup" id="signupButton" /><br />
+      </form>
+      <a href="./loginform1.html"> Already have an account? Login</a>
+    </div>
+    <script>
+      document
+        .getElementById("signupForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          let userDetails;
+          try {
+            userDetails = JSON.parse(localStorage.getItem("userdetails")) || [];
+          } catch (error) {
+            userDetails = [];
+          }
+
+          let obj = {
+            username: document.getElementById("username").value,
+            mobile: document.getElementById("mobile").value,
+            email: document.getElementById("email").value,
+            password: document.getElementById("password").value,
+          };
+
+          if (
+            obj.username === "" ||
+            obj.mobile === "" ||
+            obj.email === "" ||
+            obj.password === ""
+          ) {
+            alert("Please fill in all fields.");
+            return;
+          }
+
+          if (
+            userDetails.some((user) => JSON.parse(user).email === obj.email)
+          ) {
+            alert("User already exists. Please go to login.");
+          } else {
+            userDetails.push(JSON.stringify(obj));
+            localStorage.setItem("userdetails", JSON.stringify(userDetails));
+            alert("Registration Successful.");
+          }
+        });
+    </script>
+  </body>
+</html>

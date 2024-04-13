@@ -1,0 +1,105 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+</head>
+<body>
+    <div id="loginForm">
+        <div id="loginMain">
+            <h3 style="text-align: center;">Login Form</h3>
+            <form id="loginForm">
+                <input type="text" placeholder="email" id="loginUsername"><br><br>
+                <input type="password" placeholder="Password" id="loginPassword"><br><br>
+                <input type="submit" value="Login" id="loginButton"><br>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            let userData = localStorage.getItem("userdetails");
+            let userArray = JSON.parse(userData);
+            console.log(userArray);
+            let mail = document.getElementById("loginUsername").value;
+            let pswd = document.getElementById("loginPassword").value;
+
+            let usr = userArray.find((user) => {
+                return user.email == mail && user.password == pswd;
+            }); //if (username === localStorageData.email && userPassword === localStorageData.password) {
+                    // window.location.href = "home.html";
+
+            if (mail && pswd) {
+                if (usr) {
+                    window.location.href = "welcome.html";
+                } else {
+                    alert("emailpassword incorrect");
+                }
+            } 
+            else {
+                alert("Please enter valid credentials");
+            }
+           
+        });
+    </script>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Form</title>
+</head>
+<body>
+<div id="loginContainer">
+  <div id="loginMain">
+    <h3 style="text-align: center">Login Form</h3>
+
+    <input type="text" placeholder="Username" id="loginUsername" /><br /><br />
+    <input type="password" placeholder="Password" id="loginPassword" /><br /><br />
+    <button onclick="validateLogin()">Submit</button>
+  </div>
+</div>
+
+<script>
+function validateLogin() {
+  // Retrieve user details from local storage
+  let userData = localStorage.getItem("userdetails");
+  let userArray = JSON.parse(userData) || []; 
+
+  console.log("Stored user data:", userArray);
+
+  // Get entered username and password
+  let username = document.getElementById("loginUsername").value;
+  let password = document.getElementById("loginPassword").value;
+
+  console.log("Entered username:", username);
+  console.log("Entered password:", password);
+
+  // Check if entered username and password match any stored user
+  let userPresent = userArray.some(function(userString) {
+    let user = JSON.parse(userString);
+    return user.username === username && user.password === password;
+  });
+
+  console.log("User present:", userPresent);
+
+  if (userPresent) {
+    // Redirect to welcome page if login is successful
+    console.log('Login successful. Redirecting to welcome page.');
+    window.location.href = "welcome.html";
+  } else {
+    // Display error message if login is unsuccessful
+    console.log("Invalid username or password");
+    alert("Invalid username or password");
+  }
+}
+</script>
+</body>
+</html> --> 
+ 

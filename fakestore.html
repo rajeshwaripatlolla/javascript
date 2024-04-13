@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./fakestore.js"></script>
+    <link rel="stylesheet" href="./fakestore.css">
+    <style>
+        table,th,td {
+    border: 2px solid orangered;
+    border-collapse: collapse;
+}
+
+
+    </style>
+</head>
+<body>  
+    <table>
+        <tr>
+            <th class="wow"></th>
+            <th class="wow"></th>
+            <th class="wow"></th>
+            <th class="wow"></th>
+            <th class="wow"></th>
+            <th class="wow"></th>
+            <th class="wow"></th>
+            <th class="wow"></th>    
+        </tr>
+        <tr>
+            <td class="row1"></td>
+            <td class="row1"></td>
+            <td class="row1"></td>
+            <td class="row1"></td>
+            <td class="row1"></td>
+            <td class="row1"></td>
+            <td class="row1"></td> 
+            <td class="row1"></td> 
+            
+        </tr>
+        <tr>
+                <td class="row2"></td>
+                <td class="row2"></td>
+                <td class="row2"></td>
+                <td class="row2"></td>
+                <td class="row2"></td>
+                <td class="row2"></td>
+                <td class="row2"></td> 
+                <td class="row2"></td>  
+        </tr>
+        <tr> 
+            <td class="row3"></td>
+            <td class="row3"></td>
+            <td class="row3"></td>
+            <td class="row3"></td>
+            <td class="row3"></td>
+            <td class="row3"></td>
+            <td class="row3"></td>
+            <td class="row3"></td>      
+    </tr>
+    <tr>      
+        <td class="row4"></td>
+        <td class="row4"></td>
+        <td class="row4"></td>
+        <td class="row4"></td>
+        <td class="row4"></td>
+        <td class="row4"></td>
+        <td class="row4"></td> 
+        <td class="row4"></td> 
+</tr>
+<tr>
+            
+    <td class="row5"></td>
+    <td class="row5"></td>
+    <td class="row5"></td>
+    <td class="row5"></td>
+    <td class="row5"></td>
+    <td class="row5"></td>
+    <td class="row5"></td>  
+    <td class="row5"></td>
+</tr>
+<tr>
+  <td class="row6"></td>
+    <td class="row6"></td>
+    <td class="row6"></td>
+    <td class="row6"></td>
+    <td class="row6"></td>
+    <td class="row6"></td>
+    <td class="row6"></td>  
+    <td class="row6"></td>
+</tr>     
+    </table>
+<script>
+    var a=document.getElementsByClassName("wow")[0];
+    a.innerHTML="Id";
+      
+    var b= document.getElementsByClassName("wow")[1];
+    b.innerHTML="title";
+    
+    var c =document.getElementsByClassName("wow")[2];
+    c.innerHTML="price";
+    var d =document.getElementsByClassName("wow")[3];
+    d.innerHTML="description";
+    var e =document.getElementsByClassName("wow")[4];
+    e.innerHTML="category";
+    var f =document.getElementsByClassName("wow")[5];
+    f.innerHTML="image";
+    var g = document.getElementsByClassName("wow")[6];
+    g.innerHTML="rate";
+    var g = document.getElementsByClassName("wow")[7];
+    g.innerHTML="count";
+
+    var a1 = document.getElementsByClassName("row1")[0];
+    a1.innerHTML=R[0].id;
+    var a1 = document.getElementsByClassName("row1")[1];
+    a1.innerHTML=R[0].title;
+    var a1 = document.getElementsByClassName("row1")[2];
+    a1.innerHTML=R[0].price;
+    var a1 = document.getElementsByClassName("row1")[3]
+    a1.innerHTML=R[0].description;1
+    var a1 = document.getElementsByClassName("row1")[4]
+    a1.innerHTML=R[0].category;
+    
+    var a1 = document.getElementsByClassName("row1")[5]
+    // a1.innerHTML=R[0].image;
+    var img1=document.createElement("img")
+    img1.setAttribute("src","https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg")
+    a1.appendChild(img1)
+    img1.setAttribute("height","50")
+    img1.setAttribute("width","50")
+    
+    var a1 = document.getElementsByClassName("row1")[6]
+    a1.innerHTML=R[0].rating.rate;
+    var a1 = document.getElementsByClassName("row1")[7];
+    a1.innerHTML=R[0].rating.count;
+   
+    var a1 = document.getElementsByClassName("row2")[0];
+    a1.innerHTML=R[1].id;
+    var a1 = document.getElementsByClassName("row2")[1];
+    a1.innerHTML=R[1].title;
+    var a1 = document.getElementsByClassName("row2")[2];
+    a1.innerHTML=R[1].price;
+    var a1 = document.getElementsByClassName("row2")[3];
+    a1.innerHTML=R[1].description   
+    var a1 = document.getElementsByClassName("row2")[4]
+    a1.innerHTML=R[1].category;
+    var a1 = document.getElementsByClassName("row2")[5]
+    // a1.innerHTML=R[1].image;
+    var img1=document.createElement("img")
+    img1.setAttribute("src" ,"https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg")
+    a1.appendChild(img1)
+    img1.setAttribute("height","50")
+    img1.setAttribute("width","50")
+    var a1 = document.getElementsByClassName("row2")[6]
+    a1.innerHTML=R[1].rating.rate;
+    var a1 = document.getElementsByClassName("row2")[7]
+    a1.innerHTML=R[1].rating.count;
+
+    var a1 = document.getElementsByClassName("row3")[0];
+    a1.innerHTML=R[2].id;
+    var a1 = document.getElementsByClassName("row3")[1];
+    a1.innerHTML=R[2].title;
+    var a1 = document.getElementsByClassName("row3")[2];
+    a1.innerHTML=R[2].price;
+    var a1 = document.getElementsByClassName("row3")[3];
+    a1.innerHTML=R[2].description; 
+    // var a1 = document.getElementsByClassName("row3")[3];
+    // a1.innerHTML=[2].description;
+    var a1 = document.getElementsByClassName("row3")[4];
+    a1.innerHTML=R[2].category;
+    var a1 = document.getElementsByClassName("row3")[5];
+    // a1.innerHTML=R[2].image;
+    img1=createElement("img")
+    img1.setAttribute("src","https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg")
+    img1.setAttribute("height","50")
+    img1.setAttribute("width","50")
+    a1.appendChild(img1)
+    
+    var a1 = document.getElementsByClassName("row3")[6];
+    a1.innerHTML=R[2].rating.rate;
+    var a1 = document.getElementsByClassName("row3")[7];
+    a1.innerHTML=R[2].rating.count;
+
+    var a1 = document.getElementsByClassName("row4")[0];
+    a1.innerHTML=R[3].id;
+    var a1 = document.getElementsByClassName("row4")[1];
+    a1.innerHTML=R[3].title;
+    var a1 = document.getElementsByClassName("row4")[2];
+    a1.innerHTML=R[3].price;
+    var a1 = document.getElementsByClassName("row4")[3]
+    a1.innerHTML=R[3].description
+    // var a1 = document.getElementsByClassName("row3")[3];
+    // a1.innerHTML=[3].description;
+    var a1 = document.getElementsByClassName("row4")[4]
+    a1.innerHTML=R[3].category;
+    var a1 = document.getElementsByClassName("row4")[5]
+    // a1.innerHTML=R[3].image;
+    img1=createElement("img")
+    img1.setAttribute("src","https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg")
+    img1.setAttribute("height","50")
+    img1.setAttribute("width","50")
+    a1.appendChild(img1)
+    var a1 = document.getElementsByClassName("row4")[6]
+    a1.innerHTML=R[3].rating.rate;
+    var a1 = document.getElementsByClassName("row4")[7]
+    a1.innerHTML=R[3].rating.count;
+
+    var a1 = document.getElementsByClassName("row5")[0];
+    a1.innerHTML=R[4].id;
+    var a1 = document.getElementsByClassName("row5")[1];
+    a1.innerHTML=R[4].title;
+    var a1 = document.getElementsByClassName("row5")[2];
+    a1.innerHTML=R[4].price;
+    var a1 = document.getElementsByClassName("row5")[3];
+    a1.innerHTML=R[4].description
+    var a1 = document.getElementsByClassName("row5")[4]
+    a1.innerHTML=R[4].category;
+    var a1 = document.getElementsByClassName("row5")[5]
+    img1=createElement("img")
+    img1.setAttribute("src","https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg")
+    img1.setAttribute("height","50")
+    img1.setAttribute("width","50")
+    a1.appendChild(img1)
+    var a1 = document.getElementsByClassName("row5")[6]
+    a1.innerHTML=R[4].rating.rate;
+    var a1 = document.getElementsByClassName("row5")[7]
+    a1.innerHTML=R[4].rating.count;
+
+    var a1 = document.getElementsByClassName("row6")[0];
+    a1.innerHTML=R[5].id;
+    var a1 = document.getElementsByClassName("row6")[1];
+    a1.innerHTML=R[5].title;
+    var a1 = document.getElementsByClassName("row6")[2];
+    a1.innerHTML=R[5].price;
+    var a1 = document.getElementsByClassName("row6")[3];
+    a1.innerHTML=R[5].description
+    // var a1 = document.getElementsByClassName("row5")[3]
+    // a1.innerHTML=[4].description;
+    var a1 = document.getElementsByClassName("row6")[4]
+    a1.innerHTML=R[5].category;
+    var a1 = document.getElementsByClassName("row6")[5]
+    img1=createElement("img")
+    img1.setAttribute("src","https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg")
+    img1.setAttribute("height","50")
+    img1.setAttribute("width","50")
+    a1.appendChild(img1)
+    var a1 = document.getElementsByClassName("row6")[6]
+    a1.innerHTML=R[5].rating.rate;
+    var a1 = document.getElementsByClassName("row6")[7]
+    a1.innerHTML=R[5].rating.count;
+    
+    
+</script>
+</body>
+</html>

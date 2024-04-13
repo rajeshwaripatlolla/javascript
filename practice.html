@@ -1,0 +1,165 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./practice.js"></script>
+    <script>
+//     var a=prompt("enter a number" )
+// // var b = 20
+// let c = 0
+// var d= ""
+// for (i=a.length-1;i>=2;i--){
+//   c++;
+//   if(a%i !==0){
+//     d= d+a[i]
+//   } 
+// }
+// console.log(d);
+
+
+//11
+// var a = parseInt(prompt("Enter a number"));
+// var d = "";
+
+// function isPrime(num) {
+//     for (var i = 2; i <= (num); i++) {
+//         if (num % i === 0) {
+//         return false;}
+//     }
+//     return num > 1;
+// }
+
+// for (var i = a; i >= 2; i--) {
+//     if (isPrime(i)) {
+//         d += i + " ";
+//     }
+// }
+
+// console.log( d);
+
+//12 
+
+</script>
+
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        body {
+            background-image: linear-gradient(to left, navy, rgb(85, 134, 154), rgb(29, 83, 165), indigo);
+        }
+        
+        #main {
+            border: 2px solid black;
+            background-image: linear-gradient(indigo, purple);
+            height: 350px;
+            width: 280px;
+            color: white;
+            margin-left: 600px;
+            margin-top: 200px;
+        }
+        
+        input {
+            margin-left: 55px;
+            margin-top: 5px;
+            border-radius: 5px;
+            padding: 5px;
+        }
+        
+        p {
+            margin-left: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="main">
+            <h3 style="text-align: center;">Signup Form</h3>
+            <form>
+                <input type="text" placeholder="Username" id="hp"><br><br>
+                <input type="number" placeholder="Mobile Number" id="hp1"><br><br>
+                <input type="email" placeholder="Gmail" id="hp2"><br><br>
+                <input type="password" placeholder="Password" id="hp3"><br><br>
+                <input type="button" value="Signup" id="hp4"><br>
+                <p>Already have an account? <a href="#" id="loginLink">Login</a></p>
+            </form>
+        </div>
+    </div>
+    <div id="loginForm" style="display: none;">
+        <div id="loginMain">
+            <h3 style="text-align: center;">Login Form</h3>
+            <form>
+                <input type="text" placeholder="Username" id="loginUsername"><br><br>
+                <input type="password" placeholder="Password" id="loginPassword"><br><br>
+                <input type="button" value="Login" id="loginButton"><br>
+                <p>Don't have an account? <a href="#" id="signupLink">Sign up</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Switch to login form
+        document.getElementById('loginLink').addEventListener('click', function() {
+            document.getElementById('main').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'block';
+        });
+
+        // Switch to signup form
+        document.getElementById('signupLink').addEventListener('click', function() {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('main').style.display = 'block';
+        });
+
+        // Signup form
+        document.getElementById('hp4').addEventListener('click', function() {
+            saveData();
+        });
+
+        function saveData() {
+            var username = document.getElementById("hp").value;
+            var mobile = document.getElementById("hp1").value;
+            var email = document.getElementById("hp2").value;
+            var password= document.getElementById("hp3").value;
+            
+            var storedData = JSON.parse(localStorage.getItem('userData'));
+
+            if (storedData && storedData.mobile === mobile && storedData.password ===password ) {
+                alert('User already exists!');
+            } else {
+                var userData = {
+                    username: username,
+                    mobile: mobile,
+                    email: email,
+                    password: password
+                };
+
+                localStorage.setItem('userData', JSON.stringify(userData));
+
+                alert('Signup successful!');
+            }
+        }
+
+        // Login form
+        document.getElementById('loginButton').addEventListener('click', function() {
+            var username = document.getElementById("loginUsername").value;
+            var password = document.getElementById("loginPassword").value;
+
+            var storedData = JSON.parse(localStorage.getItem('userData'));
+            if (storedData && storedData.username === username && storedData.password === password) {
+                alert('Login successful!');
+            } else {
+                alert('Invalid username or password!');
+            }
+        });
+    </script>
+</body>
+</html>

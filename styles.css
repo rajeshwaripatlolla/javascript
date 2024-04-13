@@ -1,0 +1,15 @@
+/* Custom Styles */
+body {
+  padding-top: 60px; /* Adjust based on navbar height */
+}
+
+.container {
+  margin-top: 20px;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+  body {
+      padding-top: 56px; /* Adjust based on navbar height */
+  }
+}

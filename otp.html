@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OTP Generator</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e0adad;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 750px;
+}
+
+.main{
+  background-color:goldenrod;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0.1px;
+ 
+}
+
+h1 {
+  text-align: center;
+  
+}
+
+#otp {
+  font-size: 22px;
+  text-align: center;
+  margin-top: 22px;
+}
+
+#raji{
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: blueviolet;
+  color: white;
+  border: none;
+  
+}
+
+ #raji:hover {
+  background-color:lightskyblue;
+  color: black;
+} 
+</style>
+</head>
+<body>
+
+<div class="main">
+  <h1>One-Time Password Generator</h1>
+  <button id="raji">Generate OTP</button>
+  <p id="otp"></p>
+</div>
+
+<script>
+document.getElementById("raji").addEventListener("click", demo);
+function demo() {
+  var a = Math.ceil( Math.random() * 1000000);
+
+  document.getElementById("otp").innerText = " Otp: " + a;
+}
+</script>
+</body>
+</html>
