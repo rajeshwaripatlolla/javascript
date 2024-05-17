@@ -154,13 +154,15 @@
 //   console.log("prime");
 // }
 
-var a=prompt("enter a number" )
-// var b = 20
-let c = 0
-var d= ""
-for (i=a.length-1;i>=2;i--){
-  c++;
-  if(a%i==0){
-    d+= a[i]
-  }
-}
+// var a=prompt("enter a number" )
+// // var b = 20
+// let c = 0
+// var d= ""
+// for (i=a.length-1;i>=2;i--){
+//   c++;
+//   if(a%i==0){
+//     d+= a[i]
+//   }
+// }
+
+

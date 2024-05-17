@@ -37,9 +37,99 @@
 // console.log(power(10,2));
 //6. Write a function that returns the string "something" joined with a space " " and the given argument a.
 // function demo (a){
-//     return "something" + a 
+//  return "something" + a 
 // }
 // console.log(demo(" "));
+
+//7 Create a function that takes two arguments. Both arguments are integers, a and b. Return true if one of them is 10 or if their sum is 10.
+
+    //  function demo (a,b){
+    //    if(a===10 || b ===10 || a+b ===10){
+    //     console.log("true");
+    //    }
+    //    else{
+    //     console.log("false");
+    //    }
+       
+    //  }
+    //  demo(5,10)
+      //8.Create a function that takes two strings as arguments and returns either true or false depending on whether the total number of characters in the first string is equal to the total number of characters in the second string.
+        // function fname(str,str1){
+        //     if(str.length === str1.length){
+        //         console.log("true");
+        //     }
+        //     else{
+        //         console.log("false");
+        //     }
+        // }
+        // fname("raji","maheshwari")
+//9 Create a function that takes a name and returns a greeting in the form of a string. Don't use a normal function, use an arrow function.
+// let a = (name)=>{
+//   console.log(`hello,${name}`); 
+// }
+
+//10:Create a function that takes an array of 10 numbers (between 0 and 9) and returns a string of those numbers formatted as a phone number (e.g. (555) 555-5555).
+//    function fname(numbers){
+//     let a = `${numbers[0]}${numbers[1]} ${numbers[2]}`
+//     const b = `${numbers[3]}${numbers[4]}${numbers[5]}`;
+//     const secondPart = `${numbers[6]}${numbers[7]}${numbers[8]}${numbers[9]}`;
+//    }
+//    console.log(5,5,5,5,5,5);
+   //11 Create a function that returns an array of strings sorted by length in ascending order.
+  //  function sortByLength(arr) {
+  //   return arr.sort((a, b) => a.length - b.length);
+  // }
+  // const a = sortByLength(["a", "ccc", "dddd", "bb"]);
+  // console.log(a);
+
+  //12 Create a function that takes an array of numbers and returns the second largest number.
+// secondLargest([10, 40, 30, 20, 50]) ➞ 40
+
+// function secondLargest(arr) {
+//   if (arr.length < 2) {
+//     console.log("a");
+//   }
+  
+//   let largest = -Infinity;
+//   let secondLargest = -Infinity;
+  
+//   for (let num of arr) {
+//     if (num > largest) {
+//       secondLargest = largest;
+//       largest = num;
+//     } else if (num > secondLargest && num !== largest) {
+//       secondLargest = num;
+//     }
+//   }
+//   return secondLargest;
+// }
+
+
+// console.log(secondLargest([10, 40, 30, 20, 50])); // 40
+
+//15:Create a function that takes an array of integers as an argument and returns a unique number from that array. All numbers except unique ones have the same number of occurrences in the array.
+function findUniqueNumber(arr) {
+  const countMap = {};
+
+  // Count occurrences of each number in the array
+  for (let num of arr) {
+    countMap[num] = (countMap[num] || 0) + 1;
+  }
+
+  // Find the unique number
+  for (let num in countMap) {
+    if (countMap[num] === 1) {
+      return parseInt(num, 10);
+    }
+  }
+
+  return null; // Return null if no unique number found
+}
+
+
+console.log(findUniqueNumber([2, 2, 2, 3, 4, 4, 4])); // 3
+
+
 // 23. Program to arrange numbers in ascending order
 //  let a = [2,3,1,5,4]
 //   b = a.sort()               // using sort
@@ -142,30 +232,47 @@
 // lcm=a*l;
 // console.log(lcm)
 
- arr = [2,2,2,3,4,4]
- d = []
- e = []
- for (i of arr){
-    if(!e.includes(i))
-    e.push(i)
- }
- for(i of e){
-    c = 0 
-    for(j of e){
-        if(i ==j){
-            c++
-        }
-    }
-    if(c==1){
-        uni = i
-    }
-    else{
-        d.push(c)
-    }
- }
- for(i of d){
-    if (i=uni){
-        continue
-    }
- }
+//  arr = [2,2,2,3,4,4]
+//  d = []
+//  e = []
+//  for (i of arr){
+//     if(!e.includes(i))
+//     e.push(i)
+//  }
+//  for(i of e){
+//     c = 0 
+//     for(j of e){
+//         if(i ==j){
+//             c++
+//         }
+//     }
+//     if(c==1){
+//         uni = i
+//     }
+//     else{
+//         d.push(c)
+//     }
+//  }
+//  for(i of d){
+//     if (i=uni){
+//         continue
+//     }
+//  }
 
+  // converting after _ letters to uppercase letter
+// var a = "hi_guys_how_are_you";
+// var b = "";
+
+// for (var i = 0; i < a.length; i++) {
+//   if (i === 0) {
+//     b += a[i];
+//   } else if (a[i] === "_") {
+//     b += "_";
+//     i++; 
+//     b += a[i].toUpperCase(); 
+//   } else {
+//     b += a[i];
+//   }
+// }
+
+// console.log(b);  

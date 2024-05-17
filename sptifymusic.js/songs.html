@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Playlist Tracks</title>
+    <!-- Add Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            padding: 10px;
+            box-sizing: border-box;
+            z-index: 1000;
+        }
+
+        #tracks-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 8px;
+            border-radius: 8px;
+            border: none;
+            background-color: #fff;
+            font-size: 16px;
+        }
+
+        .track {
+            width: 15%;
+            border-radius: 5px;
+            padding: 30px;
+            margin: 10px;
+            margin-top: 20px;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid #ccc;
+
+        }
+
+        .track:hover {
+            box-shadow: 10px 10px 18px 27px rgba(240, 240, 240, 0.75);
+            -webkit-box-shadow: 10px 10px 18px 27px rgba(240, 240, 240, 0.75);
+            -moz-box-shadow: 10px 10px 18px 27px rgba(240, 240, 240, 0.75);
+            transition: ease-in-out 0.2s;
+        }
+
+        .track img {
+            height: 150px;
+            margin-right: 20px;
+        }
+
+        .audio-control {
+            margin-top: 10px;
+        }
+
+        .playing {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <input type="text" class="search-input" id="searchInput" placeholder="Search by song name">
+    </div>
+    <div id="tracks-container" style="margin-top: 40px;"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        let currentAudio = null;
+
+        const options = {
+            method: 'GET',
+            url: 'https://spotify23.p.rapidapi.com/playlist_tracks/',
+            params: {
+                id: '37i9dQZF1DX4Wsb4d7NKfP',
+                offset: '0',
+                limit: '100'
+            },
+            headers: {
+                'X-RapidAPI-Key': 'c1301ec7bamshe15c317064e2a5dp1988d2jsn62a9078908c5',
+                'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+            }
+        };
+
+        axios.request(options)
+            .then(response => {
+                const tracksContainer = document.getElementById('tracks-container');
+                const tracks = response.data.items;
+
+                tracks.forEach(track => {
+                    const trackElement = document.createElement('div');
+                    trackElement.classList.add('track');
+                    trackElement.id = 'track-' + track.track.id;
+
+                    const trackImage = document.createElement('img');
+                    trackImage.src = track.track.album.images[0].url;
+
+                    const trackInfo = document.createElement('div');
+
+                    const trackName = document.createElement('h3');
+                    trackName.textContent = track.track.name;
+
+                    const artistNames = document.createElement('p');
+                    artistNames.textContent = 'Artist(s): ' + track.track.artists.map(artist => artist.name).join(', ');
+
+                    const audio = new Audio(track.track.preview_url);
+
+                    const playButton = document.createElement('button');
+                    playButton.innerHTML = '<i class="fas fa-play"></i>';
+                    playButton.addEventListener('click', () => {
+                        if (currentAudio && currentAudio !== audio) {
+                            currentAudio.pause();
+                            document.querySelectorAll('.track').forEach(el => {
+                                el.classList.remove('playing');
+                            });
+                        }
+                        currentAudio = audio;
+                        audio.play();
+                        trackElement.classList.add('playing');
+                    });
+
+                    const pauseButton = document.createElement('button');
+                    pauseButton.innerHTML = '<i class="fas fa-pause"></i>';
+                    pauseButton.addEventListener('click', () => {
+                        audio.pause();
+                        trackElement.classList.remove('playing');
+                    });
+
+                    trackInfo.appendChild(trackName);
+                    trackInfo.appendChild(artistNames);
+
+                    trackElement.appendChild(trackImage);
+                    trackElement.appendChild(trackInfo);
+                    trackElement.appendChild(playButton);
+                    trackElement.appendChild(pauseButton);
+
+                    tracksContainer.appendChild(trackElement);
+                });
+
+                // Add search functionality
+                const searchInput = document.getElementById('searchInput');
+                searchInput.addEventListener('input', () => {
+                    const searchValue = searchInput.value.toLowerCase();
+                    tracks.forEach(track => {
+                        const trackName = track.track.name.toLowerCase();
+                        const trackElement = document.getElementById('track-' + track.track.id);
+                        if (trackName.includes(searchValue)) {
+                            trackElement.style.display = 'block';
+                        } else {
+                            trackElement.style.display = 'none';
+                        }
+                    });
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching tracks:', error);
+            });
+    </script>
+</body>
+
+</html>

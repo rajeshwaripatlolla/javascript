@@ -1,4 +1,4 @@
-// PUSH:
+// PUSH: 
 // let a = ["a","e"]
 //     a.push ("i","o","u")     //[ 'a', 'e', 'i', 'o', 'u' ]
 //   console.log(a);
@@ -150,8 +150,17 @@
 // let b = 5              // output 7
 //  let c = a+b 
 // console.log(c);
-const pi = 3.14
-const a = "raji"            // output 3.14
-console.log(a);
 
 
+// const pi = 3.14
+// const a = "raji"            // output 3.14
+// console.log(pi);
+
+// callback : a function which is passed as a argument to the another function 
+// var h = (a)=>{
+//   console.log("sh");
+//   a()
+// }
+// var cb = ()=>{
+// }
+// h(cb)
